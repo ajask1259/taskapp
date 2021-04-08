@@ -64,7 +64,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="BUW-fJ-ibw" id="3Zy-An-GIU"/>
+                        <outlet property="tableView" destination="BUW-fJ-ibw" id="2Kd-EZ-lXo"/>
                         <segue destination="8Ae-5K-zui" kind="show" identifier="cellSegue" id="bBH-Jn-vls"/>
                     </connections>
                 </viewController>
@@ -138,7 +138,7 @@
                     <navigationItem key="navigationItem" id="LtH-CE-Noi"/>
                     <connections>
                         <outlet property="contentsTextView" destination="N6W-qN-7lV" id="IZf-I6-N1B"/>
-                        <outlet property="datePacker" destination="XQr-wr-fdY" id="AhB-DZ-Hc8"/>
+                        <outlet property="datePicker" destination="XQr-wr-fdY" id="AhB-DZ-Hc8"/>
                         <outlet property="titleTextField" destination="qbc-TB-AdT" id="QcI-TX-tcB"/>
                     </connections>
                 </viewController>
