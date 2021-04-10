@@ -22,9 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //背景タップ時dismissKeyboradを呼ぶ設定
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tapGesture)
+
         
         tableView.delegate=self
         tableView.dataSource=self
@@ -131,9 +129,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-    @objc func dismissKeyboard(){
-        //キーボード閉じる
-        view.endEditing(true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        print("tap")
     }
 }
 
