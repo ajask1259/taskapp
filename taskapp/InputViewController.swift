@@ -21,6 +21,10 @@ class InputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //キーボードで隠れないようにする
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         //背景タップ時dismissKeyboradを呼ぶ設定
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
@@ -84,18 +88,43 @@ class InputViewController: UIViewController {
         }
     }
     
-    
-    
     @objc func dismissKeyboard(){
         //キーボード閉じる
         view.endEditing(true)
     }
-    @IBAction func titleexit(_ sender: Any) {
-    }
+    
+
     @IBAction func categoryexit(_ sender: Any) {
     }
     
+    @IBAction func titleexit(_ sender: Any) {
+    }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("テキストフィールドがタップされた")
+        return true
+        
+    }
+    //キーボードで隠れないようにするためのやつ
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if !category.isFirstResponder {
+            return
+        }
+    
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+
+
 
     /*
     // MARK: - Navigation

@@ -129,12 +129,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZHu-eL-Nw6">
-                                <rect key="frame" x="10" y="495" width="394" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRp-0X-RDT">
+                                <rect key="frame" x="10" y="485" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="categoryexit:" destination="8Ae-5K-zui" eventType="editingDidEndOnExit" id="Sjw-DP-xju"/>
+                                    <action selector="categoryexit:" destination="8Ae-5K-zui" eventType="editingDidEndOnExit" id="Uh2-Zw-LtC"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -147,9 +147,8 @@
                             <constraint firstItem="hwi-eh-OAw" firstAttribute="top" secondItem="XQr-wr-fdY" secondAttribute="bottom" constant="10" id="77I-CT-1UO"/>
                             <constraint firstItem="4Nm-DC-Cmd" firstAttribute="leading" secondItem="uQr-Dy-vrD" secondAttribute="leading" constant="10" id="ASI-QV-Uc0"/>
                             <constraint firstItem="XQr-wr-fdY" firstAttribute="top" secondItem="N6W-qN-7lV" secondAttribute="bottom" constant="10" id="GUe-Tv-Mvi"/>
-                            <constraint firstItem="uQr-Dy-vrD" firstAttribute="trailing" secondItem="ZHu-eL-Nw6" secondAttribute="trailing" constant="10" id="Grf-I2-HSe"/>
-                            <constraint firstItem="ZHu-eL-Nw6" firstAttribute="top" secondItem="hwi-eh-OAw" secondAttribute="bottom" constant="10" id="OTB-Ve-lzs"/>
-                            <constraint firstItem="ZHu-eL-Nw6" firstAttribute="leading" secondItem="uQr-Dy-vrD" secondAttribute="leading" constant="10" id="QkF-e1-urH"/>
+                            <constraint firstItem="fRp-0X-RDT" firstAttribute="top" secondItem="hwi-eh-OAw" secondAttribute="bottom" id="Jgw-CU-67R"/>
+                            <constraint firstItem="uQr-Dy-vrD" firstAttribute="trailing" secondItem="fRp-0X-RDT" secondAttribute="trailing" constant="10" id="KWY-Jj-kNC"/>
                             <constraint firstItem="uQr-Dy-vrD" firstAttribute="trailing" secondItem="N6W-qN-7lV" secondAttribute="trailing" constant="10" id="UIn-Cl-9Ti"/>
                             <constraint firstItem="uQr-Dy-vrD" firstAttribute="trailing" secondItem="XQr-wr-fdY" secondAttribute="trailing" id="b9g-CT-ZwG"/>
                             <constraint firstItem="81t-RD-ZXm" firstAttribute="top" secondItem="uQr-Dy-vrD" secondAttribute="top" constant="10" id="cAD-Yz-Gof"/>
@@ -161,12 +160,13 @@
                             <constraint firstItem="N6W-qN-7lV" firstAttribute="top" secondItem="4Nm-DC-Cmd" secondAttribute="bottom" constant="10" id="mKg-CZ-c6f"/>
                             <constraint firstItem="81t-RD-ZXm" firstAttribute="leading" secondItem="uQr-Dy-vrD" secondAttribute="leading" constant="10" id="sGR-gw-NvO"/>
                             <constraint firstItem="N6W-qN-7lV" firstAttribute="leading" secondItem="uQr-Dy-vrD" secondAttribute="leading" constant="10" id="t7a-pU-ltH"/>
+                            <constraint firstItem="fRp-0X-RDT" firstAttribute="leading" secondItem="uQr-Dy-vrD" secondAttribute="leading" constant="10" id="z55-zx-Rob"/>
                             <constraint firstItem="uQr-Dy-vrD" firstAttribute="trailing" secondItem="81t-RD-ZXm" secondAttribute="trailing" constant="10" id="zeV-rc-BTu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LtH-CE-Noi"/>
                     <connections>
-                        <outlet property="category" destination="ZHu-eL-Nw6" id="6yL-W4-oZS"/>
+                        <outlet property="category" destination="fRp-0X-RDT" id="cEq-Hu-rPH"/>
                         <outlet property="contentsTextView" destination="N6W-qN-7lV" id="IZf-I6-N1B"/>
                         <outlet property="datePicker" destination="XQr-wr-fdY" id="AhB-DZ-Hc8"/>
                         <outlet property="titleTextField" destination="qbc-TB-AdT" id="QcI-TX-tcB"/>
