@@ -9,8 +9,9 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     //realmインスタンス
     let realm = try! Realm()
     //データベース内のタスクの格納されるリスト
@@ -21,8 +22,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //背景タップ時dismissKeyboradを呼ぶ設定
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        
         tableView.delegate=self
         tableView.dataSource=self
+        searchBar.delegate=self
+    }
+
+    //検索ボタン押下時の呼び出しメソッド
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //検索でキーボード閉じる
+        searchBar.resignFirstResponder()
+        
+        if searchBar.text != "" {
+            let predicate = NSPredicate(format: "category = %@",searchBar.text!)
+            taskArray = realm.objects(Task.self).filter(predicate)
+        }else{
+            taskArray=realm.objects(Task.self).sorted(byKeyPath:"date",ascending:true)
+        }
+
+        tableView.reloadData()
+    }
+    // キャンセルボタン押下時呼び出し
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        view.endEditing(true)
+        taskArray=realm.objects(Task.self).sorted(byKeyPath:"date",ascending:true)
+        tableView.reloadData()
     }
     // データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,4 +131,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    @objc func dismissKeyboard(){
+        //キーボード閉じる
+        view.endEditing(true)
+    }
 }
+
